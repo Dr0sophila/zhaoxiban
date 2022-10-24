@@ -83,6 +83,10 @@ flutter:
     - family: weird
       fonts:
         - asset: assets/fonts/weird.ttf
+        
+    - family: SHS
+      fonts:
+        - asset: assets/fonts/SHS.otf
   # fonts:
   #   - family: Schyler
   #     fonts:

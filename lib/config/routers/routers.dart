@@ -6,6 +6,7 @@ import 'router_handler.dart';
 class Routes {
   static String root = '/';
   static String language = '/language';
+  static String calender = '/calender';
 
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = fluro.Handler(
@@ -13,7 +14,7 @@ class Routes {
       return const Text('Page not found');
     });
 
-    // 创建pageRoute
     router.define(language, handler: languageHandler);
+    router.define(calender, handler: calenderHandler);
   }
 }
