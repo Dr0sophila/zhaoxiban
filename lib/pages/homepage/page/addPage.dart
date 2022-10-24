@@ -43,11 +43,11 @@ class _AddPageState extends State<AddPage> {
             ),
           ),
         ),
-        body: Consumer<functionlist>(
+        body: Consumer<FunctionList>(
           builder: (context, list, child) {
             List<Widget> funcList = [];
             for (var item in functions.keys) {
-              funcList.add(functionButton(
+              funcList.add(FunctionButton(
                 selectmode: 1, //add func mode
                 function: item,
                 isadded: list.added.contains(item),

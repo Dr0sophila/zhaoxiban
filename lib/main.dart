@@ -5,14 +5,15 @@ import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
 import 'package:provider/provider.dart';
 import 'pages/homepage/page/HomePage.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  final functiondata = functionlist();
+  final functiondata = FunctionList();
+  await functiondata.synchronize();
 
   runApp(
     MultiProvider(
