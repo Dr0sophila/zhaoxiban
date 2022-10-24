@@ -5,7 +5,7 @@ import 'package:zhaoxiban/pages/homepage/page/HomePage.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
 
 class AddPage extends StatefulWidget {
-  AddPage({Key? key}) : super(key: key);
+  const AddPage({Key? key}) : super(key: key);
 
   @override
   State<AddPage> createState() => _AddPageState();
@@ -20,11 +20,11 @@ class _AddPageState extends State<AddPage> {
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
-                  return HomePage();
+                  return const HomePage();
                 },
               ));
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
             ),
@@ -32,15 +32,13 @@ class _AddPageState extends State<AddPage> {
           centerTitle: true,
           elevation: 2.0,
           backgroundColor: Colors.white,
-          title: Container(
-            child: Text(
-              "添加功能",
-              style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
-                  fontSize: 25.0,
-                  fontFamily: 'weird'),
-            ),
+          title: const Text(
+            "添加功能",
+            style: TextStyle(
+                fontWeight: FontWeight.w900,
+                color: Colors.black,
+                fontSize: 25.0,
+                fontFamily: 'weird'),
           ),
         ),
         body: Consumer<FunctionList>(
@@ -54,7 +52,7 @@ class _AddPageState extends State<AddPage> {
               ));
             }
             return GridView.count(
-                padding: EdgeInsets.all(27),
+                padding: const EdgeInsets.all(27),
                 scrollDirection: Axis.vertical,
                 crossAxisCount: 2,
                 mainAxisSpacing: 28,

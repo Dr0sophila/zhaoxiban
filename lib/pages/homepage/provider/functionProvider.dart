@@ -19,8 +19,10 @@ class FunctionList with ChangeNotifier {
     data.setStringList('added', added);
   }
 
-  rmfunc(String func) {
+  rmfunc(String func) async {
     added.remove(func);
     notifyListeners();
+    final data = await SharedPreferences.getInstance();
+    data.setStringList('added', added);
   }
 }

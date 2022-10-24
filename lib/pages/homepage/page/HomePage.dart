@@ -36,8 +36,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) {
-                      //返回要跳转的目标页面
-                      return AddPage();
+                      return const AddPage();
                     },
                   ));
                 })

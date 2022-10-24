@@ -1,8 +1,10 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
 import 'package:provider/provider.dart';
+import 'config/routers/routers.dart';
 import 'pages/homepage/page/HomePage.dart';
 
 void main() async {
@@ -25,12 +27,14 @@ void main() async {
   );
 }
 
+final FluroRouter router = FluroRouter();
+
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // final router = fluro.Router();
-    // ApplicationRouter.router = router;
-    // Routes.configureRoutes(router);
+    Routes.configureRoutes(router);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'remember to name it',

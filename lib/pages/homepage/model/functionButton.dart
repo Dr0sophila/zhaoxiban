@@ -1,6 +1,8 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
+import '../../../main.dart';
 
 class FunctionButton extends StatelessWidget {
   int mode = 0; //0 mode:hompage ;1 mode:addpage;
@@ -44,6 +46,10 @@ class FunctionButton extends StatelessWidget {
                 ],
               ),
               onPressed: () {
+                if (mode == 0) {
+                  router.navigateTo(context, "/$function",
+                      transition: TransitionType.fadeIn);
+                }
                 if (mode == 1) {
                   if (funclist.added.contains(function)) {
                     funclist.rmfunc(function);
@@ -103,5 +109,10 @@ Map functions = {
     "方言转化",
     'assets/img/dialect.png',
     const Color.fromRGBO(196, 27, 84, 1)
+  ],
+  "language": [
+    "方言设置",
+    'assets/img/language.png',
+    const Color.fromRGBO(125, 0, 15, 1)
   ],
 };
