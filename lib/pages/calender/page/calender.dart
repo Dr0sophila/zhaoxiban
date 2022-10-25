@@ -58,7 +58,9 @@ class _CalenderState extends State<Calender> {
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(23, 79, 44, 1),
           leading: MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,

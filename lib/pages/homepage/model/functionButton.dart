@@ -66,7 +66,7 @@ class FunctionButton extends StatelessWidget {
 
 Map functions = {
   "font": ["一键字体", 'assets/img/font.png', const Color.fromRGBO(58, 96, 222, 1)],
-  "alart": [
+  "alarm": [
     "意外警报",
     'assets/img/alart.png',
     const Color.fromRGBO(196, 35, 35, 1)

@@ -41,6 +41,8 @@ dependencies:
   dio: ^4.0.6
   shared_preferences: ^2.0.15
   fluro: ^2.0.3
+  lunar_calendar: ^1.0.1
+  location: ^4.4.0
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +81,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  #fuck the ui designer, there's comething here
   fonts:
     - family: weird
       fonts:

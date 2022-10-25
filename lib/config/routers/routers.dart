@@ -7,6 +7,7 @@ class Routes {
   static String root = '/';
   static String language = '/language';
   static String calender = '/calender';
+  static String alarm = '/alarm';
 
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = fluro.Handler(
@@ -16,5 +17,6 @@ class Routes {
 
     router.define(language, handler: languageHandler);
     router.define(calender, handler: calenderHandler);
+    router.define(alarm, handler: alarmHandler);
   }
 }
