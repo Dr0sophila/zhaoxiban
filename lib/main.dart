@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:zhaoxiban/pages/language/provider/languageProvider.dart';
 import 'config/routers/routers.dart';
 import 'pages/homepage/page/HomePage.dart';
 
@@ -15,14 +16,16 @@ void main() async {
   ]);
 
   final functiondata = FunctionList();
+  final languagedata = Language();
   await functiondata.synchronize();
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: functiondata),
+        ChangeNotifierProvider.value(value: languagedata),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }

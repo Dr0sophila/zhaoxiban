@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';import 'package:location/location.dart';
+import 'package:flutter/material.dart';
 
 class Alarm extends StatefulWidget {
   const Alarm({Key? key}) : super(key: key);
@@ -9,29 +9,7 @@ class Alarm extends StatefulWidget {
 
 class _AlarmState extends State<Alarm> {
   @override
-  Widget build(BuildContext context) {Location location = new Location();
-
-bool _serviceEnabled;
-PermissionStatus _permissionGranted;
-LocationData _locationData;
-
-_serviceEnabled = await location.serviceEnabled();
-if (!_serviceEnabled) {
-  _serviceEnabled = await location.requestService();
-  if (!_serviceEnabled) {
-    return;
-  }
-}
-
-_permissionGranted = await location.hasPermission();
-if (_permissionGranted == PermissionStatus.denied) {
-  _permissionGranted = await location.requestPermission();
-  if (_permissionGranted != PermissionStatus.granted) {
-    return;
-  }
-}
-
-_locationData = await location.getLocation();
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(196, 35, 35, 1),
