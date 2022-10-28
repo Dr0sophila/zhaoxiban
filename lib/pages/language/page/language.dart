@@ -3,7 +3,7 @@ import 'package:zhaoxiban/pages/homepage/page/HomePage.dart';
 import 'package:zhaoxiban/pages/language/model/customRadio.dart';
 
 class Language extends StatefulWidget {
-  const Language({Key? key}) : super(key: key);
+  const Language({key}) : super(key: key);
 
   @override
   State<Language> createState() => _LanguageState();
@@ -39,7 +39,6 @@ class _LanguageState extends State<Language> {
                 fontFamily: 'SHS'),
           ),
         ),
-        body: new CustomRadio()
-        );
+        body: new CustomRadio());
   }
 }

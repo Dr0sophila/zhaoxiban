@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Alarm extends StatefulWidget {
-  const Alarm({Key? key}) : super(key: key);
+  const Alarm({key}) : super(key: key);
 
   @override
   State<Alarm> createState() => _AlarmState();

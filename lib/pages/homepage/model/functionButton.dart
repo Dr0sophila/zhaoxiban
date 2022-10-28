@@ -8,12 +8,15 @@ class FunctionButton extends StatelessWidget {
   int mode = 0; //0 mode:hompage ;1 mode:addpage;
   String function;
   bool added = true;
-  FunctionButton(
-      {Key? key, required this.function, bool? isadded, int? selectmode})
-      : super(key: key) {
-    isadded == false ? added = false : added = true;
-    selectmode == 1 ? mode = 1 : mode = 0;
-  }
+
+  FunctionButton(this.function, this.added, this.mode) {}
+
+  // FunctionButton(
+  //     {Key? key, required this.function, bool? isadded, int? selectmode})
+  //     : super(key: key) {
+  //   isadded == false ? added = false : added = true;
+  //   selectmode == 1 ? mode = 1 : mode = 0;
+  // }
 
   @override
   Widget build(BuildContext context) {

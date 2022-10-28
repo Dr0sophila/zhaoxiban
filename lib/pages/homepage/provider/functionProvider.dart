@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FunctionList with ChangeNotifier {
-  late List<String> added;
+  List<String> added = ["language", "bus"];
 
   synchronize() async {
     final data = await SharedPreferences.getInstance();
     data.getStringList('added') == null
-        ? added = ["font"]
-        : added = data.getStringList('added')!;
+        ? added = ["language", "calender"]
+        : added = data.getStringList('added');
   }
 
   addfunc(String func) async {

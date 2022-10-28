@@ -16,11 +16,11 @@ class DioUtil {
     try {
       Response response;
       if (formData == null) {
-        response = await dio.post(servicePath[url]!);
+        response = await dio.post(servicePath[url]);
       } else {
         String formdata = jsonEncode(formData);
         response = await dio.post(
-          servicePath[url]!,
+          servicePath[url],
           data: formdata,
         );
       }

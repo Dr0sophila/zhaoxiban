@@ -5,7 +5,7 @@ import 'package:zhaoxiban/pages/homepage/page/HomePage.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
 
 class AddPage extends StatefulWidget {
-  const AddPage({Key? key}) : super(key: key);
+  const AddPage({key}) : super(key: key);
 
   @override
   State<AddPage> createState() => _AddPageState();
@@ -45,12 +45,9 @@ class _AddPageState extends State<AddPage> {
           builder: (context, list, child) {
             List<Widget> funcList = [];
             for (var item in functions.keys) {
-              funcList.add(FunctionButton(
-                selectmode: 1, //add func mode
-                function: item,
-                isadded: list.added.contains(item),
-              ));
+              funcList.add(FunctionButton(item, list.added.contains(item), 1));
             }
+            print(funcList.length);
             return GridView.count(
                 padding: const EdgeInsets.all(27),
                 scrollDirection: Axis.vertical,

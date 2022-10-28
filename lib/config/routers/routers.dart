@@ -11,7 +11,7 @@ class Routes {
 
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = fluro.Handler(
-        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
       return const Text('Page not found');
     });
 
