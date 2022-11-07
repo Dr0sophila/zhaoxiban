@@ -47,7 +47,7 @@ class _AddPageState extends State<AddPage> {
             for (var item in functions.keys) {
               funcList.add(FunctionButton(item, list.added.contains(item), 1));
             }
-            print(funcList.length);
+
             return GridView.count(
                 padding: const EdgeInsets.all(27),
                 scrollDirection: Axis.vertical,
