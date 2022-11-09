@@ -14,7 +14,9 @@ class _AlarmState extends State<Alarm> {
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(196, 35, 35, 1),
           leading: MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,
@@ -31,6 +33,14 @@ class _AlarmState extends State<Alarm> {
             ),
           ),
         ),
-        body: Container());
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/img/calenderbackground.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ));
   }
 }

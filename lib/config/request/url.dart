@@ -1,9 +1,9 @@
 // 接口地址
 
-const serviceUrl = 'http://120.77.79.99:8085';
+const serviceUrl = 'http://101.132.77.105:3002';
 
 const servicePath = {
-  'signin': serviceUrl + '/user/login',
+  'lunar': serviceUrl + '/utils/lunar',
   'signup': serviceUrl + '/user/register',
   'quit': serviceUrl + '/disRelation'
 };

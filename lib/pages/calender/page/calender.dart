@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:zhaoxiban/config/request/methods.dart';
 
 List<String> num = [
   "一",
@@ -52,6 +54,20 @@ class Calender extends StatefulWidget {
 
 class _CalenderState extends State<Calender> {
   DateTime dateTime = DateTime.now();
+  var lunar;
+  @override
+  void initState() {
+    super.initState();
+    initToken();
+  }
+
+  initToken() async {
+    lunar = await DioUtil.getRequest("lunar");
+
+    lunar = lunar["data"];
+    print(lunar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +130,7 @@ class _CalenderState extends State<Calender> {
                       width: MediaQuery.of(context).size.width - 52,
                       color: const Color.fromRGBO(23, 79, 44, 1),
                       child: Text(
-                        "${num[dateTime.day - 1]}日 星期${num[dateTime.weekday - 1]}\n九月廿三",
+                        "${num[dateTime.day - 1]}日 星期${num[dateTime.weekday - 1]}\n$lunar",
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,

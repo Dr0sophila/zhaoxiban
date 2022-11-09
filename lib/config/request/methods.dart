@@ -12,7 +12,7 @@ class DioUtil {
 
   static Dio dio = new Dio(options);
 
-  static requestData(url, {formData}) async {
+  static postRequest(url, {formData}) async {
     try {
       Response response;
       if (formData == null) {
@@ -35,10 +35,10 @@ class DioUtil {
     }
   }
 
-  static match(url) async {
+  static getRequest(url) async {
     try {
       Response response;
-      response = await dio.get(url);
+      response = await dio.get(servicePath[url]);
 
       if (response.statusCode == 200) {
         String data = response.data;
