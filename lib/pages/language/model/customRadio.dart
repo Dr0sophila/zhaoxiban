@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zhaoxiban/pages/language/provider/languageProvider.dart';
 
+List<RadioModel> sampleData = <RadioModel>[];
+
 class CustomRadio extends StatefulWidget {
   @override
   createState() {
@@ -10,20 +12,20 @@ class CustomRadio extends StatefulWidget {
 }
 
 class CustomRadioState extends State<CustomRadio> {
-  List<RadioModel> sampleData = <RadioModel>[];
   String language='普通话';//选择的方言
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
-    sampleData.add( RadioModel(true, '✔', '普通话'));
-    sampleData.add( RadioModel(false, '✔', '闽南语'));
-    sampleData.add( RadioModel(false, '✔', '粤语'));
-    sampleData.add( RadioModel(false, '✔', '四川话'));
-    sampleData.add( RadioModel(false, '✔', '客家话'));
-    sampleData.add( RadioModel(false, '✔', '东北话'));
-    sampleData.add( RadioModel(false, '✔', '福州话'));
-    sampleData.add( RadioModel(false, '✔', '福清话'));
+    if (sampleData.length <= 0) {
+      sampleData.add( RadioModel(false, '✔', '普通话'));
+      sampleData.add( RadioModel(false, '✔', '闽南语'));
+      sampleData.add( RadioModel(false, '✔', '四川话'));
+      sampleData.add( RadioModel(false, '✔', '粤语'));
+      sampleData.add( RadioModel(false, '✔', '客家话'));
+      sampleData.add( RadioModel(false, '✔', '东北话'));
+      sampleData.add( RadioModel(false, '✔', '福州话'));
+      sampleData.add( RadioModel(false, '✔', '福清话'));
+
+    }
   }
 
   @override
@@ -31,6 +33,8 @@ class CustomRadioState extends State<CustomRadio> {
     return  Container(
       child: Consumer<Language>(
       builder: (context, funcLanguage, child) {
+        // sampleData.forEach((element) => element.isSelected = false);
+        sampleData[funcLanguage.item].isSelected = true;
         return ListView.builder(
           itemCount: sampleData.length,
           itemBuilder: (BuildContext context, int index) {
@@ -38,12 +42,13 @@ class CustomRadioState extends State<CustomRadio> {
 
               //highlightColor: Colors.red,
               splashColor: Color.fromRGBO(125, 0, 15, 1),
+
               onTap: () {
                 setState(() {
                   sampleData.forEach((element) => element.isSelected = false);
                   sampleData[index].isSelected = true;
                   language = sampleData[index].text;
-                  funcLanguage.getLanguage(language);
+                  funcLanguage.getLanguage(language,index);
                   print(language);
                 });
               },
@@ -59,6 +64,7 @@ class CustomRadioState extends State<CustomRadio> {
 class RadioItem extends StatelessWidget {
   final RadioModel _item;
   RadioItem(this._item);
+
   @override
   Widget build(BuildContext context) {
     return  Container(

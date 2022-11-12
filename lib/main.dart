@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:zhaoxiban/pages/alarmpage/provider/contactsProvider.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:zhaoxiban/pages/language/provider/languageProvider.dart';
@@ -16,14 +17,17 @@ void main() async {
   ]);
 
   final functiondata = FunctionList();
+  final contactList = ContactList();
   final languagedata = Language();
   await functiondata.synchronize();
+  await languagedata.synchronize();
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: functiondata),
         ChangeNotifierProvider.value(value: languagedata),
+        ChangeNotifierProvider.value(value: contactList),
       ],
       child: const MyApp(),
     ),

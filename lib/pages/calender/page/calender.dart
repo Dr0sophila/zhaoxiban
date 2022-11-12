@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:zhaoxiban/config/request/methods.dart';
 
@@ -54,7 +53,7 @@ class Calender extends StatefulWidget {
 
 class _CalenderState extends State<Calender> {
   DateTime dateTime = DateTime.now();
-  var lunar;
+  String lunar = "";
   @override
   void initState() {
     super.initState();
@@ -62,10 +61,11 @@ class _CalenderState extends State<Calender> {
   }
 
   initToken() async {
-    lunar = await DioUtil.getRequest("lunar");
+    var lunarreq = await DioUtil.getRequest("lunar");
 
-    lunar = lunar["data"];
-    print(lunar);
+    setState(() {
+      lunar = lunarreq["data"];
+    });
   }
 
   @override
