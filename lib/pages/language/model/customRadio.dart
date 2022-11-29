@@ -7,57 +7,53 @@ List<RadioModel> sampleData = <RadioModel>[];
 class CustomRadio extends StatefulWidget {
   @override
   createState() {
-    return  CustomRadioState();
+    return CustomRadioState();
   }
 }
 
 class CustomRadioState extends State<CustomRadio> {
-  String language='普通话';//选择的方言
+  String language = '普通话'; //选择的方言
   @override
   void initState() {
     if (sampleData.length <= 0) {
-      sampleData.add( RadioModel(false, '✔', '普通话'));
-      sampleData.add( RadioModel(false, '✔', '闽南语'));
-      sampleData.add( RadioModel(false, '✔', '四川话'));
-      sampleData.add( RadioModel(false, '✔', '粤语'));
-      sampleData.add( RadioModel(false, '✔', '客家话'));
-      sampleData.add( RadioModel(false, '✔', '东北话'));
-      sampleData.add( RadioModel(false, '✔', '福州话'));
-      sampleData.add( RadioModel(false, '✔', '福清话'));
-
+      sampleData.add(RadioModel(false, '✔', '普通话'));
+      sampleData.add(RadioModel(false, '✔', '闽南语'));
+      sampleData.add(RadioModel(false, '✔', '四川话'));
+      sampleData.add(RadioModel(false, '✔', '粤语'));
+      sampleData.add(RadioModel(false, '✔', '客家话'));
+      sampleData.add(RadioModel(false, '✔', '东北话'));
+      sampleData.add(RadioModel(false, '✔', '福州话'));
+      sampleData.add(RadioModel(false, '✔', '福清话'));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      child: Consumer<Language>(
-      builder: (context, funcLanguage, child) {
-        // sampleData.forEach((element) => element.isSelected = false);
-        sampleData[funcLanguage.item].isSelected = true;
-        return ListView.builder(
-          itemCount: sampleData.length,
-          itemBuilder: (BuildContext context, int index) {
-            return InkWell(
+    return Container(child:
+        Consumer<LanguageSetting>(builder: (context, funcLanguage, child) {
+      // sampleData.forEach((element) => element.isSelected = false);
+      sampleData[funcLanguage.item].isSelected = true;
+      return ListView.builder(
+        itemCount: sampleData.length,
+        itemBuilder: (BuildContext context, int index) {
+          return InkWell(
+            //highlightColor: Colors.red,
+            splashColor: Color.fromRGBO(125, 0, 15, 1),
 
-              //highlightColor: Colors.red,
-              splashColor: Color.fromRGBO(125, 0, 15, 1),
-
-              onTap: () {
-                setState(() {
-                  sampleData.forEach((element) => element.isSelected = false);
-                  sampleData[index].isSelected = true;
-                  language = sampleData[index].text;
-                  funcLanguage.getLanguage(language,index);
-                  print(language);
-                });
-              },
-              child: new RadioItem(sampleData[index]),
-            );
-          },
-        );
-      }
-      ));
+            onTap: () {
+              setState(() {
+                sampleData.forEach((element) => element.isSelected = false);
+                sampleData[index].isSelected = true;
+                language = sampleData[index].text;
+                funcLanguage.getLanguage(language, index);
+                print(language);
+              });
+            },
+            child: new RadioItem(sampleData[index]),
+          );
+        },
+      );
+    }));
   }
 }
 
@@ -67,39 +63,37 @@ class RadioItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      margin: EdgeInsets.only(left: 30.0,top:20.0,right:30.0 ),
+    return Container(
+      margin: EdgeInsets.only(left: 30.0, top: 20.0, right: 30.0),
       alignment: Alignment.center,
-      decoration:  BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            width: 2.0,
-            color: Color.fromRGBO(196, 196, 196, 1),
-          )
-        )
-      ),
-      child:  Row(
+      decoration: BoxDecoration(
+          border: Border(
+              bottom: BorderSide(
+        width: 2.0,
+        color: Color.fromRGBO(196, 196, 196, 1),
+      ))),
+      child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Container(//单选按钮
-            margin:  EdgeInsets.only(bottom: 10.0),
+          Container(
+            //单选按钮
+            margin: EdgeInsets.only(bottom: 10.0),
             height: 45.0,
             width: 45.0,
-            child:  Center(
-              child:  Text(_item.buttonText,
-                  style:  TextStyle(
+            child: Center(
+              child: Text(_item.buttonText,
+                  style: TextStyle(
                       color:
-                      _item.isSelected ? Colors.white : Colors.transparent,
+                          _item.isSelected ? Colors.white : Colors.transparent,
                       fontWeight: FontWeight.w900,
                       fontSize: 25.0,
-                      fontFamily: 'weird'
-                      )),
+                      fontFamily: 'weird')),
             ),
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               color: _item.isSelected
                   ? Color.fromRGBO(125, 0, 15, 1)
                   : Colors.transparent,
-              border:  Border.all(
+              border: Border.all(
                   width: 3.0,
                   color: _item.isSelected
                       ? Color.fromRGBO(125, 0, 15, 1)
@@ -107,16 +101,15 @@ class RadioItem extends StatelessWidget {
               borderRadius: const BorderRadius.all(const Radius.circular(50.0)),
             ),
           ),
-          Container(//方言文字
-            margin:  EdgeInsets.only(left: 20.0,bottom: 10.0),
-            child: Text(
-                _item.text,
-                style:  TextStyle(
-                    color:Colors.black,
+          Container(
+            //方言文字
+            margin: EdgeInsets.only(left: 20.0, bottom: 10.0),
+            child: Text(_item.text,
+                style: TextStyle(
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 30.0,
-                    fontFamily: 'SHS')
-            ),
+                    fontFamily: 'SHS')),
           )
         ],
       ),

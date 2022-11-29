@@ -1,8 +1,13 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zhaoxiban/pages/homepage/model/functionButton.dart';
 import 'package:zhaoxiban/pages/homepage/page/addPage.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
+import 'package:zhaoxiban/test.dart';
+
+import '../../../test1.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -36,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) {
-                      return const AddPage();
+                      return AddPage();
                     },
                   ));
                 })

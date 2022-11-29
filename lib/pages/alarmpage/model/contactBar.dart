@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ContactBar extends StatelessWidget {
-  ContactBar({Key key, this.name, this.tel}) : super(key: key);
+import '../provider/contactsProvider.dart';
+
+class RemoveContactBar extends StatelessWidget {
+  RemoveContactBar({Key key, this.name, this.tel}) : super(key: key);
   String name;
   String tel;
   @override
@@ -46,32 +49,40 @@ class ContactBar extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  MaterialButton(
-                                      child: Container(
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                11,
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                4,
-                                        // margin: EdgeInsets.all(30.0),
-                                        decoration: BoxDecoration(
-                                          color: const Color.fromRGBO(
-                                              196, 35, 35, 1),
-                                          shape: BoxShape.rectangle,
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                        ),
-                                        child: const Text(
-                                          "确认",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 40.0,
+                                  Consumer<ContactList>(
+                                      builder: (context, list, child) {
+                                    return MaterialButton(
+                                        child: Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height /
+                                              11,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              4,
+                                          // margin: EdgeInsets.all(30.0),
+                                          decoration: BoxDecoration(
+                                            color: const Color.fromRGBO(
+                                                196, 35, 35, 1),
+                                            shape: BoxShape.rectangle,
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                          ),
+                                          child: const Text(
+                                            "确认",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 40.0,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      onPressed: () {}),
+                                        onPressed: () {
+                                          list.rmfunc(name, tel);
+                                          Navigator.pop(context);
+                                        });
+                                  }),
                                   MaterialButton(
                                     child: Container(
                                       height:

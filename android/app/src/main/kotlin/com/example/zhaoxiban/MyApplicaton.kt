@@ -1,4 +1,9 @@
 package com.example.zhaoxiban
 
-class MyApplicaton {
+import com.baidu.mapapi.base.BmfMapApplication;
+
+class MyApplicaton : BmfMapApplication() {
+    override fun onCreate() {
+        super.onCreate()
+    }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slide_done/slide_done.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class EmergencyCall extends StatelessWidget {
@@ -95,7 +96,7 @@ class EmergencyCall extends StatelessWidget {
                     ),
                   ),
                   onEnd: () async {
-                    await Future.delayed(const Duration(seconds: 2), () {});
+                    launch("tel:$mode");
 
                     Navigator.pop(context);
                   },

@@ -78,7 +78,7 @@ class _BandingState extends State<Banding> {
                       itemCount: contactList.contactsnum,
                       itemExtent: MediaQuery.of(context).size.height / 9,
                       itemBuilder: (BuildContext context, int index) {
-                        return ContactBar(
+                        return RemoveContactBar(
                           name: contactList.name[index],
                           tel: contactList.tel[index],
                         );

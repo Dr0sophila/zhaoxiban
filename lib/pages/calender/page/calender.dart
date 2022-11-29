@@ -63,6 +63,7 @@ class _CalenderState extends State<Calender> {
   initToken() async {
     var lunarreq = await DioUtil.getRequest("lunar");
 
+    print("lunarreq");
     setState(() {
       lunar = lunarreq["data"];
     });
@@ -103,7 +104,6 @@ class _CalenderState extends State<Calender> {
             children: [
               Positioned(
                 width: MediaQuery.of(context).size.width,
-                top: -60,
                 child: Text(
                   "${dateTime.day}",
                   textAlign: TextAlign.center,
@@ -115,7 +115,7 @@ class _CalenderState extends State<Calender> {
                 ),
               ),
               Positioned(
-                top: 120,
+                top: 180,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
