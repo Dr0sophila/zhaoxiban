@@ -56,7 +56,6 @@ class FunctionButton extends StatelessWidget {
               ),
               onPressed: () async {
                 await audio_play.playtext(lo, functions[function][0]);
-
                 if (mode == 0) {
                   router.navigateTo(context, "/$function",
                       transition: TransitionType.fadeIn);
@@ -77,12 +76,12 @@ class FunctionButton extends StatelessWidget {
 
 Map functions = {
   // "font": ["一键字体", 'assets/img/font.png', const Color.fromRGBO(58, 96, 222, 1)],
-  // "alarm": [
-  //   "意外警报",
-  //   'assets/img/alart.png',
-  //   const Color.fromRGBO(196, 35, 35, 1)
-  // ],
-  "dick": ["健康码", 'assets/img/dick.png', const Color.fromRGBO(55, 166, 77, 1)],
+  "alarm": [
+    "意外警报",
+    'assets/img/alart.png',
+    const Color.fromRGBO(196, 35, 35, 1)
+  ],
+  "dick": ["双码出行", 'assets/img/dick.png', const Color.fromRGBO(55, 166, 77, 1)],
   "calender": [
     "日历",
     'assets/img/calender.png',
@@ -95,11 +94,11 @@ Map functions = {
     const Color.fromRGBO(214, 193, 2, 1)
   ],
   // "taxi": ["出租车", 'assets/img/taxi.png', const Color.fromRGBO(0, 141, 207, 1)],
-  // "weather": [
-  //   "天气预报",
-  //   'assets/img/weather.png',
-  //   const Color.fromRGBO(63, 133, 161, 1)
-  // ],
+  "weather": [
+    "天气预报",
+    'assets/img/weather.png',
+    const Color.fromRGBO(63, 133, 161, 1)
+  ],
   // "news": [
   //   "新闻联播",
   //   'assets/img/news.png',

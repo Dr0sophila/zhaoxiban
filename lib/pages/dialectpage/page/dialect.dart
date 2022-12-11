@@ -40,7 +40,7 @@ class _DialectPageState extends State<DialectPage> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: mode
+                children: !mode
                     ? [
                         dialect(),
                         RawMaterialButton(
@@ -116,7 +116,12 @@ class _DialectPageState extends State<DialectPage> {
                   var res = await DioUtil.postRequest("textUpload",
                       formData: formdata);
                   print(res["data"]);
-                  await audio_play.play(res["data"]);
+                  // await audio_play.play(res["data"]);
+                  AudioPlayer player = AudioPlayer();
+                  String url =
+                      'http://47.100.226.180:3002/common/textDownload/${res["data"]}';
+                  print(url);
+                  var result = await player.play(url);
                 },
               ),
               // MaterialButton(

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:zhaoxiban/config/request/methods.dart';
+import 'package:zhaoxiban/pages/dialectpage/page/dialect.dart';
+import 'package:zhaoxiban/pages/language/provider/languageProvider.dart';
 
 List<String> num = [
   "一",
@@ -46,7 +49,6 @@ List<String> weekday = [
 
 class Calender extends StatefulWidget {
   const Calender({key}) : super(key: key);
-
   @override
   State<Calender> createState() => _CalenderState();
 }
@@ -63,7 +65,14 @@ class _CalenderState extends State<Calender> {
   initToken() async {
     var lunarreq = await DioUtil.getRequest("lunar");
 
-    print("lunarreq");
+    var context = this.context;
+    final dlanguage =
+        Provider.of<LanguageSetting>(context, listen: false).appLanguage;
+    print("\n\n\n\n");
+    print(dlanguage);
+
+    await audio_play.playtext(dlanguage, lunarreq["data"]);
+    print(lunarreq["data"]);
     setState(() {
       lunar = lunarreq["data"];
     });
@@ -99,10 +108,9 @@ class _CalenderState extends State<Calender> {
               fit: BoxFit.cover,
             ),
           ),
-          child: Stack(
-            fit: StackFit.expand,
+          child: Column(
             children: [
-              Positioned(
+              Container(
                 width: MediaQuery.of(context).size.width,
                 child: Text(
                   "${dateTime.day}",
@@ -114,8 +122,7 @@ class _CalenderState extends State<Calender> {
                       fontFamily: 'SHS'),
                 ),
               ),
-              Positioned(
-                top: 180,
+              Container(
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
