@@ -136,11 +136,8 @@ class _BusState extends State<Bus> {
               ),
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SizedBox(
-                  height: 12,
-                  width: MediaQuery.of(context).size.width,
-                ),
                 Card(
                   color: const Color.fromRGBO(232, 232, 232, 1),
                   shape: const RoundedRectangleBorder(
@@ -148,7 +145,7 @@ class _BusState extends State<Bus> {
                   ),
                   child: Container(
                     padding: const EdgeInsets.all(20),
-                    height: MediaQuery.of(context).size.height / 5,
+                    height: MediaQuery.of(context).size.height * 0.5,
                     width: MediaQuery.of(context).size.width * 3 / 4,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
@@ -210,39 +207,39 @@ class _BusState extends State<Bus> {
                         );
                       }));
                     }),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.4,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: MediaQuery.of(context).size.height * 0.1,
-                        left: MediaQuery.of(context).size.width * 0.21,
-                        child: MaterialButton(
-                          child: SizedBox(
-                              width: MediaQuery.of(context).size.width / 2,
-                              child: const Image(
-                                image:
-                                    AssetImage("assets/img/recordposition.png"),
-                              )),
-                          onPressed: () {},
-                        ),
-                      ),
-                      Positioned(
-                        top: MediaQuery.of(context).size.height * 0.09,
-                        right: MediaQuery.of(context).size.width * 0.15,
-                        child: MaterialButton(
-                          child: Container(
-                              height: MediaQuery.of(context).size.width * 0.1,
-                              child: const Image(
-                                image: AssetImage("assets/img/card.png"),
-                              )),
-                          onPressed: () {},
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                // Container(
+                //   width: MediaQuery.of(context).size.width,
+                //   height: MediaQuery.of(context).size.height * 0.4,
+                //   child: Stack(
+                //     children: [
+                //       Positioned(
+                //         top: MediaQuery.of(context).size.height * 0.1,
+                //         left: MediaQuery.of(context).size.width * 0.21,
+                //         child: MaterialButton(
+                //           child: SizedBox(
+                //               width: MediaQuery.of(context).size.width / 2,
+                //               child: const Image(
+                //                 image:
+                //                     AssetImage("assets/img/recordposition.png"),
+                //               )),
+                //           onPressed: () {},
+                //         ),
+                //       ),
+                //       Positioned(
+                //         top: MediaQuery.of(context).size.height * 0.09,
+                //         right: MediaQuery.of(context).size.width * 0.15,
+                //         child: MaterialButton(
+                //           child: Container(
+                //               height: MediaQuery.of(context).size.width * 0.1,
+                //               child: const Image(
+                //                 image: AssetImage("assets/img/card.png"),
+                //               )),
+                //           onPressed: () {},
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),

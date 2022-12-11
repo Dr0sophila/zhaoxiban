@@ -1,8 +1,11 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zhaoxiban/pages/homepage/model/functionButton.dart';
 import 'package:zhaoxiban/pages/homepage/page/HomePage.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
+import 'package:zhaoxiban/pages/language/provider/languageProvider.dart';
 
 class AddPage extends StatefulWidget {
   const AddPage({key}) : super(key: key);
@@ -14,6 +17,7 @@ class AddPage extends StatefulWidget {
 class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
+    final dlanguage = Provider.of<LanguageSetting>(context).appLanguage;
     return Scaffold(
         appBar: AppBar(
           leading: MaterialButton(
@@ -45,7 +49,8 @@ class _AddPageState extends State<AddPage> {
           builder: (context, list, child) {
             List<Widget> funcList = [];
             for (var item in functions.keys) {
-              funcList.add(FunctionButton(item, list.added.contains(item), 1));
+              funcList.add(FunctionButton(
+                  item, list.added.contains(item), 1, dlanguage));
             }
 
             return GridView.count(

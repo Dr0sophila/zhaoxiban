@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
           builder: (context, list, child) {
             List<Widget> funcList = [];
             for (var item in list.added) {
-              funcList.add(FunctionButton(item, true, 0));
+              funcList.add(FunctionButton(item, true, 0, dlanguage));
             }
             return GridView.count(
                 padding: const EdgeInsets.all(27),

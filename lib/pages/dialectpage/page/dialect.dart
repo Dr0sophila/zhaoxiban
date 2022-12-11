@@ -45,9 +45,9 @@ class _DialectPageState extends State<DialectPage> {
                         dialect(),
                         RawMaterialButton(
                           onPressed: () {
-                            setState(() {
-                              mode = !mode;
-                            });
+                            // setState(() {
+                            //   mode = !mode;
+                            // });
                           },
                           child: const Image(
                             image: AssetImage("assets/img/transform.png"),
@@ -59,9 +59,9 @@ class _DialectPageState extends State<DialectPage> {
                         Chinese(),
                         RawMaterialButton(
                           onPressed: () {
-                            setState(() {
-                              mode = !mode;
-                            });
+                            // setState(() {
+                            //   mode = !mode;
+                            // });
                           },
                           child: const Image(
                             image: AssetImage("assets/img/transform.png"),
@@ -119,21 +119,21 @@ class _DialectPageState extends State<DialectPage> {
                   await audio_play.play(res["data"]);
                 },
               ),
-              MaterialButton(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    color: Color.fromRGBO(196, 27, 84, 1),
-                  ),
-                  width: MediaQuery.of(context).size.width / 6,
-                  height: MediaQuery.of(context).size.width / 17,
-                  child: const Text(
-                    "翻译",
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                onPressed: () async {},
-              ),
+              // MaterialButton(
+              //   child: Container(
+              //     decoration: const BoxDecoration(
+              //       borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              //       color: Color.fromRGBO(196, 27, 84, 1),
+              //     ),
+              //     width: MediaQuery.of(context).size.width / 6,
+              //     height: MediaQuery.of(context).size.width / 17,
+              //     child: const Text(
+              //       "翻译",
+              //       textAlign: TextAlign.center,
+              //     ),
+              //   ),
+              //   onPressed: () async {},
+              // ),
             ],
           ),
         ));

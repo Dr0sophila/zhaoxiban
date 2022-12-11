@@ -88,11 +88,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  #fuck the ui designer, there's comething here
+  #fuck the ui designer, there's something wrong here
   fonts:
     - family: weird
       fonts:
-        - asset: assets/fonts/weird.ttf
+        - asset: assets/fonts/SHS.otf #weird.ttf
         
     - family: SHS
       fonts:
