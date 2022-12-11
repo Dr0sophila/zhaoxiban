@@ -17,7 +17,11 @@ class _LanguageState extends State<Language> {
           backgroundColor: Color.fromRGBO(125, 0, 15, 1),
           leading: MaterialButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) {
+                  return const HomePage();
+                },
+              ));
             },
             child: const Icon(
               Icons.arrow_back_ios,

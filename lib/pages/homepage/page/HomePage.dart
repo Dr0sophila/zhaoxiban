@@ -5,9 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:zhaoxiban/pages/homepage/model/functionButton.dart';
 import 'package:zhaoxiban/pages/homepage/page/addPage.dart';
 import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
-import 'package:zhaoxiban/test.dart';
-
-import '../../../test1.dart';
+import 'package:zhaoxiban/pages/language/provider/languageProvider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -19,6 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final dlanguage = Provider.of<LanguageSetting>(context).appLanguage;
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,

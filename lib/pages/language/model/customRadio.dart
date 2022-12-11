@@ -17,13 +17,20 @@ class CustomRadioState extends State<CustomRadio> {
   void initState() {
     if (sampleData.length <= 0) {
       sampleData.add(RadioModel(false, '✔', '普通话'));
-      sampleData.add(RadioModel(false, '✔', '闽南语'));
-      sampleData.add(RadioModel(false, '✔', '四川话'));
+      sampleData.add(RadioModel(false, '✔', '安徽合肥话'));
+      sampleData.add(RadioModel(false, '✔', '上海话'));
       sampleData.add(RadioModel(false, '✔', '粤语'));
-      sampleData.add(RadioModel(false, '✔', '客家话'));
+      sampleData.add(RadioModel(false, '✔', '山东话'));
       sampleData.add(RadioModel(false, '✔', '东北话'));
-      sampleData.add(RadioModel(false, '✔', '福州话'));
-      sampleData.add(RadioModel(false, '✔', '福清话'));
+      sampleData.add(RadioModel(false, '✔', '内蒙古方言'));
+      sampleData.add(RadioModel(false, '✔', '四川话'));
+      sampleData.add(RadioModel(false, '✔', '成都话'));
+      sampleData.add(RadioModel(false, '✔', '湖北话'));
+      sampleData.add(RadioModel(false, '✔', '湖南话'));
+      sampleData.add(RadioModel(false, '✔', '陕西话'));
+      sampleData.add(RadioModel(false, '✔', '台湾普通话'));
+      sampleData.add(RadioModel(false, '✔', '河南话'));
+      sampleData.add(RadioModel(false, '✔', '香港粤语'));
     }
   }
 

@@ -9,6 +9,7 @@ import 'package:zhaoxiban/pages/homepage/provider/functionProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:zhaoxiban/pages/language/provider/languageProvider.dart';
 import 'config/routers/routers.dart';
+import 'pages/dialectpage/page/dialect.dart';
 import 'pages/homepage/page/HomePage.dart';
 import 'pages/routine/provider/routineProvider.dart';
 import 'package:flutter_baidu_mapapi_base/flutter_baidu_mapapi_base.dart'

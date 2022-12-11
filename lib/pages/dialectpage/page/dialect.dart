@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zhaoxiban/config/request/methods.dart';
 import 'package:zhaoxiban/pages/dialectpage/model/chinese.dart';
-import 'package:zhaoxiban/pages/language/page/language.dart';
 import 'package:zhaoxiban/pages/language/provider/languageProvider.dart';
-
 import '../model/languagesetting.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class DialectPage extends StatefulWidget {
   @override
@@ -25,7 +24,7 @@ class _DialectPageState extends State<DialectPage> {
           elevation: 2.0,
           backgroundColor: const Color.fromRGBO(196, 27, 84, 1),
           title: const Text(
-            "remember  to complete",
+            "方言转化",
             style: TextStyle(
                 fontWeight: FontWeight.w900,
                 color: Colors.black,
@@ -108,7 +107,17 @@ class _DialectPageState extends State<DialectPage> {
                     child: const Image(
                       image: AssetImage("assets/img/record.png"),
                     )),
-                onPressed: () {},
+                onPressed: () async {
+                  Map<String, dynamic> formdata = {
+                    "role": llist[dlanguage],
+                    "text": Controllerdes.text
+                  };
+                  print(formdata);
+                  var res = await DioUtil.postRequest("textUpload",
+                      formData: formdata);
+                  print(res["data"]);
+                  await audio_play.play(res["data"]);
+                },
               ),
               MaterialButton(
                 child: Container(
@@ -123,16 +132,7 @@ class _DialectPageState extends State<DialectPage> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                onPressed: () async {
-                  Map<String, dynamic> formdata = {
-                    "role": llist[dlanguage],
-                    "text": "珂肖铁傻逼" //Controllerdes.text
-                  };
-                  print(formdata);
-                  var res = await DioUtil.postRequest("textUpload",
-                      formData: formdata);
-                  print(res["data"]);
-                },
+                onPressed: () async {},
               ),
             ],
           ),
@@ -142,7 +142,7 @@ class _DialectPageState extends State<DialectPage> {
 
 Map llist = {
   "安徽合肥话": "x2_xiaofei",
-  "上海话": "",
+  "上海话": "x3_ziling",
   "粤语": "x2_xiaoqiang",
   "山东话": "x2_xiaodong",
   "东北话": "x2_xiaoqian",

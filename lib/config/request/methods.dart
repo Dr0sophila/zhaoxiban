@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:dio/dio.dart';
+import 'package:zhaoxiban/pages/dialectpage/page/dialect.dart';
 import '/config/request/url.dart';
 
 class DioUtil {
@@ -89,5 +91,25 @@ class DioUtil {
     } catch (e) {
       print(e);
     }
+  }
+}
+
+class audio_play {
+  static play(pcb) async {
+    AudioPlayer player = AudioPlayer();
+    String url = 'http://47.100.226.180:3002/common/textDownload/$pcb';
+    var result = await player.play(url);
+  }
+
+//in case one day someone will read the shit I wrote, I have to say sorry to you. There's no doubt that the code is a pile of shit,but I'm tired and have no willing to optimize, my team is a group of garbage. the front end project is literally built by my own. as a word, screw you, it's your own fault to read it.
+  static playtext(String lo, String text) async {
+    Map<String, dynamic> formdata = {"role": llist[lo], "text": text};
+    print(formdata);
+    var res = await DioUtil.postRequest("textUpload", formData: formdata);
+    print(res["data"]);
+    AudioPlayer player = AudioPlayer();
+    String url =
+        'http://47.100.226.180:3002/common/textDownload/${res["data"]}';
+    var result = await player.play(url);
   }
 }
