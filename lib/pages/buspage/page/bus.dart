@@ -156,7 +156,7 @@ class _BusState extends State<Bus> {
                             fontSize: 25.0, color: Colors.black),
                         decoration: const InputDecoration(
                           border: InputBorder.none,
-                          hintText: '长按说出要去哪里',
+                          hintText: '要去哪里',
                           hintStyle: TextStyle(
                               color: Colors.grey,
                               fontFamily: 'WorkSansSemiBold',
@@ -171,7 +171,7 @@ class _BusState extends State<Bus> {
                 MaterialButton(
                     child: Container(
                       height: MediaQuery.of(context).size.height / 10,
-                      width: MediaQuery.of(context).size.width * 0.6,
+                      // width: MediaQuery.of(context).size.width * 0.6,
                       // margin: EdgeInsets.all(30.0),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
